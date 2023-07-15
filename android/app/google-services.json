@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "723518225505",
+    "project_id": "amspsingh-notes-project",
+    "storage_bucket": "amspsingh-notes-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723518225505:android:a79f01d81ea6a6ec663e20",
+        "android_client_info": {
+          "package_name": "com.example.notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723518225505-cuci6qaffl2k293hs157hflbq8q0c3bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9FuZ-_GVWRewdbFG6M-E3N6H_gXLhpiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723518225505-cuci6qaffl2k293hs157hflbq8q0c3bd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "723518225505-g70uu0tb5gevfrs9ng0fnmtg0icv8lh9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.notes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
