@@ -16,7 +16,7 @@ void main() async {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegisterView(),
+      home: const LoginView(),
     ),
   );
 }
@@ -88,9 +88,8 @@ class _RegisterViewState extends State<RegisterView> {
                             print('weak password');
                           } else if (e.code == 'email-already-in-use') {
                             print('email already in use');
-                            else if (e.code == 'invalid-email'){
-                              print('invalid email');
-                            }
+                          } else if (e.code == 'invalid-email') {
+                            print('invalid email');
                           }
                           print(e.code);
                           //print(e.code);
