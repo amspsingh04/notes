@@ -24,24 +24,23 @@ void main() async {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Home Page'),
         ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              return const Text('Done');
-            default:
-              return const Text('Loading...');
-          }
-        },
-      ),
-    );
+        body: FutureBuilder(
+            future: Firebase.initializeApp(
+              options: DefaultFirebaseOptions.currentPlatform,
+            ),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.done:
+                  return const Text('Done');
+                default:
+                  return const Text('Loading...');
+              }
+            }));
   }
-}
 }
