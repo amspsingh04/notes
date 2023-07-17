@@ -92,7 +92,7 @@ class _RegisterViewState extends State<RegisterView> {
                               print('invalid email');
                             }
                           }
-                          print(e.code)
+                          print(e.code);
                           //print(e.code);
                         }
                       },
