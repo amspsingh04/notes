@@ -68,9 +68,11 @@ class _LoginViewState extends State<LoginView> {
                                   email: email, password: password);
                           print(userCredential);
                         } on FirebaseAuthException catch (e) {
-                          print("bad");
-                          print(e);
-                          print(e.runtimeType);
+                          if (e.code == 'user-not-found') {
+                            print('user not found');
+                          } else if (e.code == 'wrong-password') {
+                            print('wrong password');
+                          }
                         }
                       },
                       child: const Text("Login")),
