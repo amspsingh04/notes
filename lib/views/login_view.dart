@@ -63,9 +63,9 @@ class _LoginViewState extends State<LoginView> {
                   );
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
-                    devtools.log('user not found');
+                    devtools.log('User not found');
                   } else if (e.code == 'wrong-password') {
-                    devtools.log('wrong password');
+                    devtools.log('Wrong password');
                   }
                 }
               },
