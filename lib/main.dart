@@ -95,12 +95,16 @@ Future<bool> showLogOutDialog(BuildContext context) {
   return showDialog<bool>(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-            title: Text('Sign Out'),
-            content: Text('Are you sure you want to signout?'),
+        return AlertDialog(
+            title: const Text('Sign Out'),
+            content: const Text('Are you sure you want to signout?'),
             actions: [
-              TextButton(onPressed: () {}, child: Text('Cancel')),
-              TextButton(onPressed: () {}, child: Text('Cancel'))
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(false);
+                  },
+                  child: const Text('Cancel')),
+              TextButton(onPressed: () {}, child: const Text('Cancel'))
             ]);
       }).then((value) => value ?? false);
 }
