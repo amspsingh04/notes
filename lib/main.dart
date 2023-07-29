@@ -59,6 +59,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
+enum MenuAction { logout }
+
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
 
@@ -70,7 +72,19 @@ class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Notes')),
+      appBar: AppBar(
+        title: const Text('Your Notes'),
+        actions: [
+          PopupMenuButton(
+              onSelected: (value) {},
+              itemBuilder: (context) {
+                return const [
+                  PopupMenuItem<MenuAction>(
+                      value: MenuAction.logout, child: Text('Logout'))
+                ];
+              })
+        ],
+      ),
       body: const Text('Hello World'),
     );
   }
