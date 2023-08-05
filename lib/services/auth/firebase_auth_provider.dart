@@ -1,6 +1,6 @@
-import 'auth_exceptions.dart';
-import 'auth_provider.dart';
-import 'auth_user.dart';
+import 'package:notes/services/auth/auth_user.dart';
+import 'package:notes/services/auth/auth_provider.dart';
+import 'package:notes/services/auth/auth_exceptions.dart';
 
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
@@ -40,7 +40,6 @@ class FirebaseAuthProvider implements AuthProvider {
   }
 
   @override
-  // TODO: implement currentUser
   AuthUser? get currentUser {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -51,14 +50,16 @@ class FirebaseAuthProvider implements AuthProvider {
   }
 
   @override
-  Future<AuthUser> logIn(
-      {required String email, required String password}) async {
-    // TODO: implement logIn
+  Future<AuthUser> logIn({
+    required String email,
+    required String password,
+  }) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      // ignore: unused_local_variable
       final user = currentUser;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
