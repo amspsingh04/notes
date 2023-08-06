@@ -60,8 +60,12 @@ class FirebaseAuthProvider implements AuthProvider {
         email: email,
         password: password,
       );
-      // ignore: unused_local_variable
       final user = currentUser;
+      if (user != null) {
+        return user;
+      } else {
+        throw UserNotLoggedInAuthException();
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         throw UserNotFoundAuthException();
@@ -73,7 +77,6 @@ class FirebaseAuthProvider implements AuthProvider {
     } catch (_) {
       throw GenericAuthException();
     }
-    throw GenericAuthException();
   }
 
   @override
