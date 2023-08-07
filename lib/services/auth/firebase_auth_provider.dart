@@ -77,7 +77,7 @@ class FirebaseAuthProvider implements AuthProvider {
     } catch (_) {
       throw GenericAuthException();
     }
-  }
+  }//if not null is used
 
   @override
   Future<void> logOut() async {
