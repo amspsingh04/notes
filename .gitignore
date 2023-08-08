@@ -9,8 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-ios/Runner/GoogleService-Info.plist
-
+ios/Runner/api_config.dart
 
 # IntelliJ related
 *.iml

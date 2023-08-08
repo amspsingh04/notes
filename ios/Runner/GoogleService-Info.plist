@@ -1,3 +1,4 @@
+import "ios\Runner\api_config.dart";
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -7,7 +8,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.723518225505-g70uu0tb5gevfrs9ng0fnmtg0icv8lh9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAlsCFHmJyIg7Uj12Vznm7G0aeC9UTZFW4</string>
+	<string>apiKey</string>
 	<key>GCM_SENDER_ID</key>
 	<string>723518225505</string>
 	<key>PLIST_VERSION</key>
