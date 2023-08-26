@@ -1,6 +1,9 @@
 //import 'dart:js';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:notes/constants/routes.dart';
 import 'package:notes/services/auth/auth_services.dart';
 import 'package:notes/views/login_view.dart';
@@ -8,10 +11,34 @@ import 'package:notes/views/notes_view.dart';
 import 'package:notes/views/register_view.dart';
 import 'package:notes/views/verify_email_view.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    MaterialApp(
+  final LocalAuthentication auth = LocalAuthentication();
+  bool authenticated = false;
+  try {
+    authenticated = await auth.authenticate(
+      localizedReason: 'Scan your Fingerprint',
+      options: const AuthenticationOptions(
+        stickyAuth: true,
+        biometricOnly: true,
+      ),
+    );
+  } catch (e) {
+    print('$e');
+  }
+  if (authenticated) {
+    runApp(
+      MyApp(),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -24,8 +51,8 @@ void main() {
         notesRoute: (context) => const NotesView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
       },
-    ),
-  );
+    );
+  }
 }
 
 class HomePage extends StatelessWidget {
